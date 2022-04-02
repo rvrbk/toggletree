@@ -26,6 +26,8 @@ export class ToggleTree {
                 this.listItems.push(listItem);
                 
                 listItem.querySelector('a').onclick = event => {
+                    event.preventDefault();
+                    
                     this.toggle(listItem);
                 }
             }
