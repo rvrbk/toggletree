@@ -27,7 +27,7 @@ export class ToggleTree {
                 
                 listItem.querySelector('a').onclick = event => {
                     event.preventDefault();
-                    
+
                     this.toggle(listItem);
                 }
             }
@@ -44,7 +44,7 @@ export class ToggleTree {
 
     toggle(listItem) {
         if (this.isCollapsed(listItem)) {
-            this.show(listItem);    
+            this.show(listItem);
         }
         else {
             this.collapse(listItem);    
@@ -55,6 +55,8 @@ export class ToggleTree {
         const list = listItem.querySelector('ul');
 
         list.style.display = 'block';
+
+        listItem.classList.add('active');
 
         if (this.useIcon) {
             listItem.querySelector(this.options.iconSelector).innerHTML = this.options.iconVisible;
@@ -71,6 +73,8 @@ export class ToggleTree {
         const list = listItem.querySelector('ul');
 
         list.style.display = 'none';
+
+        listItem.classList.remove('active');
 
         if (this.useIcon) {
             listItem.querySelector(this.options.iconSelector).innerHTML = this.options.iconCollapsed;
