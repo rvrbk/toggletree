@@ -35,7 +35,13 @@ export class ToggleTree {
     }
 
     isCollapsed(listItem) {
-        if (listItem.querySelector('ul').style.display === 'none') {
+        let display = window.getComputedStyle(listItem.querySelector('ul')).display;
+      
+        if (listItem.querySelector('ul').style.display !== '') {
+            display = listItem.querySelector('ul').style.display;
+        }
+
+        if (display === 'none') {
             return true;
         }
 
